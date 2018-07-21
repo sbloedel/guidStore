@@ -1,0 +1,46 @@
+swagger: "2.0"
+info:
+  description: >-
+    Documentation for the guidStore API
+  version: 1.0.0
+  title: guidStore
+# for now, should point to your local machine
+host: https://localhost:5001
+# basePath prefixes all resource paths
+basePath: /api
+schemes:
+  - https
+# format of bodies a client can send (Content-Type)
+consumes:
+  - application/json
+# format of the responses to the client (Accepts)
+produces:
+  - application/json
+tags:
+  - name: guidStore
+    description: Stores and retrieves guid objects
+paths:
+  /guid:
+    post:
+      tags:
+        - guid
+      summary: Creates a new guid object
+      parameters:
+        - in: body
+          name: guidData
+          description: guid object to add
+          required: false
+          schema:
+            $ref: "#/definitions/guidDef"
+      responses:
+        201:
+          description: Success
+          schema:
+            type: object
+            items:
+              $ref: "#/definitions/guidDef"
+
+# complex objects have schema definitions
+definitions:
+  guidDef:
+    $ref: "./models/guidDef.yaml"

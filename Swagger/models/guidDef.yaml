@@ -1,0 +1,12 @@
+title: guidDef
+type: object
+properties:
+  guid:
+    type: string
+    example: 390474e065cd4b2288e5b6f9e3066d2d
+  expire:
+    type: number
+    example: 1532159755
+  user:
+    type: string
+    example: MyCompany
