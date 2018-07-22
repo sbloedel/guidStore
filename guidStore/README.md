@@ -9,6 +9,11 @@ Make sure to install the following prerequisites:
 ## How to get setup?
 Execute the following commands from a Terminal window.  You can also use Visual Studio Code to debug the application.
 
+Change to the guidStore folder:
+```bash
+cd guidStore
+```
+
 To make sure all the prerequisites are installed, run:
 ```bash
 dotnet restore
