@@ -59,7 +59,7 @@ DELETE https://localhost:5001/api/guid/{id} - Deletes the record
 * Create all the web methods POST, GET, PUT, DELETE (complete)
 * Add info to a database (SqlLite) (complete)
 * Add some basic error handling (i.e. validate guid, expiration) (complete)
-* Add some basic unit testing
+* Add some basic unit testing (complete)
 * Add some basic swagger documentation (complete)
 * Add caching mechanism using Redis
 * Flesh out unit testing and documentation
