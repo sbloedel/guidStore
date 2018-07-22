@@ -26,9 +26,14 @@ namespace guidStore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // todo: Cannot get this to work for some reason
-            // services.Add<GuidDbContext>(opt => 
-            //     opt.UseSqlite("Data Source=guids.db"));
+            // todo: Cannot get this to work.  It does not like UseSqlite method
+            // var connectionString = "Data Source=guids.db";
+
+            // services
+            //     .AddEntityFrameworkSqlite()
+            //     .AddDbContext<GuidDbContext>((serviceProvider, options) =>
+            //         options.UseSqlite(connectionString)
+            //             .UseInternalServiceProvider(serviceProvider));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

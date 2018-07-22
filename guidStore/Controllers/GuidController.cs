@@ -18,6 +18,13 @@ namespace guidStore.Controllers
     {
         private GuidDbContext _context;
 
+        //todo: want to do this for dependency injection so I can mock the GuidDbContext,
+        //but I struggled to configure the services in startup.cs.  Need some guidance
+        // public GuidController(GuidDbContext context)
+        // {
+        //     _context = context;
+        // }
+
         // GET api/values/5
         [HttpGet("{guid}")]
         public ActionResult<GuidModel> Get(string guid)
