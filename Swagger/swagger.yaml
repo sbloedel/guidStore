@@ -20,25 +20,34 @@ tags:
   - name: guidStore
     description: Stores and retrieves guid objects
 paths:
-  /guid:
+  /guid/{guid}:
     post:
       tags:
         - guid
       summary: Creates a new guid object
       parameters:
+        - in: path
+          name: guid
+          description: The guid to write to the database.  If not provided, a guid will be generated and returned
+          type: string
+          required: false
         - in: body
           name: guidData
           description: guid object to add
-          required: false
+          required: true
           schema:
             $ref: "#/definitions/guidDef"
       responses:
-        201:
+        200:
           description: Success
           schema:
             type: object
             items:
               $ref: "#/definitions/guidDef"
+        400:
+          description: Bad Request - typically if the guid already exists
+        500:
+          description: Internal Error - typically a problem writing the record to the database
 
 # complex objects have schema definitions
 definitions:
