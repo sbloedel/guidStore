@@ -12,53 +12,45 @@ namespace guidStore.Controllers
     [ApiController]
     public class GuidController : ControllerBase
     {
-        // GET api/values
-        [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
         // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        [HttpGet("{guid}")]
+        public ActionResult<GuidModel> Get(string guid)
         {
-            return "value";
-        }
-
-        // POST api/values
-        [HttpPost]
-        public ActionResult<GuidModel> PostGuid([FromBody] JObject body)
-        {
-            GuidModel posted = body.ToObject<GuidModel>();
+            //DateTimeOffset.FromUnixTimeMilliseconds(1532159755).UtcDateTime;
             var model = new GuidModel();
             model.guid = "xyz";
-            model.expire = "oh my";
+            model.expire = 1532159755;
             model.user = "My biz";
             return model;
         }
 
         // POST api/values
-        [HttpPost("{guid}")]
-        public ActionResult<GuidModel> PostGeneratedGuid(string guid, [FromBody] JObject body)
+        [HttpPost("{guid?}")]
+        public ActionResult<GuidModel> PostGeneratedGuid([FromBody] JObject body, string guid="")
         {
             GuidModel posted = body.ToObject<GuidModel>();
             var model = new GuidModel();
             model.guid = "xyz";
-            model.expire = "oh my";
+            model.expire = 1532159755;
             model.user = "My biz";
             return model;
         }
 
         // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut("{guid}")]
+        public ActionResult<GuidModel> Put(string guid, [FromBody] JObject body)
         {
+            GuidModel posted = body.ToObject<GuidModel>();
+            var model = new GuidModel();
+            model.guid = "xyz";
+            model.expire = 1532159755;
+            model.user = "My biz";
+            return model;
         }
 
         // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete("{guid}")]
+        public void Delete(string guid)
         {
         }
     }
